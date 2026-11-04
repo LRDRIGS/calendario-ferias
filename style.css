@@ -6,8 +6,9 @@
 }
 
 body {
-    background-color: #F3E8FF; /* Lavanda suave e clean */
+    background-color: #F3E8FF; /* Lavanda suave */
     color: #4C1D95;
+    overflow-x: hidden; /* Evita rolagem lateral indesejada */
 }
 
 /* 1. Cabeçalho Superior */
@@ -16,6 +17,7 @@ header {
     text-align: center;
     padding: 2.2rem 1rem;
     box-shadow: 0 4px 15px rgba(91, 33, 182, 0.2);
+    width: 100%;
 }
 
 header h1 {
@@ -38,10 +40,11 @@ header p {
     max-width: 950px;
     margin: 2rem auto;
     padding: 0 1rem;
+    width: 100%;
 }
 
 .calendario-section {
-    background: #FFFFFF; /* Fundo limpo e leve */
+    background: #FFFFFF;
     border: 2px solid #E9D5FF;
     padding: 1.8rem;
     border-radius: 16px;
@@ -83,7 +86,7 @@ header p {
 .dia-card:hover {
     transform: translateY(-3px);
     background-color: #FFFFFF;
-    border-color: #F59E0B; /* Toque dourado ao passar o mouse */
+    border-color: #F59E0B;
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
 }
 
@@ -96,7 +99,7 @@ header p {
 .dia-preview {
     font-size: 0.85rem;
     font-weight: 600;
-    color: #7C3AED; /* Roxo para as anotações */
+    color: #7C3AED;
     white-space: pre-wrap;
     overflow: hidden;
     display: -webkit-box;
@@ -108,7 +111,7 @@ header p {
 
 .dia-card.com-anotacao {
     background-color: #FFFFFF;
-    border-left: 5px solid #F59E0B; /* Destaque dourado na lateral */
+    border-left: 5px solid #F59E0B;
 }
 
 /* 4. Janela Modal de Edição (Pop-up) */
@@ -118,8 +121,8 @@ header p {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(76, 29, 149, 0.4); /* Cortinado roxo suave transparente */
-    backdrop-filter: blur(4px); /* Efeito desfocado elegante */
+    background: rgba(76, 29, 149, 0.4);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -177,7 +180,7 @@ header p {
 }
 
 .btn-salvar {
-    background-color: #F59E0B; /* Botão dourado */
+    background-color: #F59E0B;
     color: #FFFFFF;
     border: none;
     padding: 0.8rem 1.2rem;
@@ -186,11 +189,6 @@ header p {
     font-weight: bold;
     font-size: 1rem;
     flex: 1;
-    transition: background-color 0.2s;
-}
-
-.btn-salvar:hover {
-    background-color: #D97706;
 }
 
 .btn-fechar {
@@ -202,9 +200,69 @@ header p {
     cursor: pointer;
     font-weight: bold;
     font-size: 1rem;
-    transition: background-color 0.2s;
 }
 
-.btn-fechar:hover {
-    background-color: #4B5563;
+/* =======================================================
+   ADAPTAÇÃO EXCLUSIVA PARA CELULARES (Telas até 768px)
+   ======================================================= */
+@media (max-width: 768px) {
+    header {
+        padding: 1.5rem 0.5rem;
+    }
+
+    header h1 {
+        font-size: 2.1rem; /* Reduz título principal para caber na tela */
+    }
+
+    header p {
+        font-size: 1.05rem;
+    }
+
+    .container {
+        margin: 0.8rem auto;
+        padding: 0 0.4rem;
+    }
+
+    .calendario-section {
+        padding: 0.8rem 0.4rem;
+        border-radius: 12px;
+    }
+
+    .dias-semana {
+        font-size: 0.8rem; /* Abreviação legível dos dias */
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.3rem;
+    }
+
+    .grid-calendario {
+        gap: 0.25rem; /* Menor espaçamento entre os quadros */
+    }
+
+    .dia-card {
+        min-height: 70px; /* Reduz altura para não exigir muita rolagem */
+        padding: 0.3rem;
+        border-radius: 6px;
+    }
+
+    .dia-numero {
+        font-size: 0.95rem;
+    }
+
+    .dia-preview {
+        font-size: 0.65rem; /* Ajusta o tamanho da fonte das anotações no celular */
+        -webkit-line-clamp: 2; /* Mostra até 2 linhas por card no mobile */
+        margin-top: 0.2rem;
+    }
+
+    .dia-card.com-anotacao {
+        border-left-width: 3px;
+    }
+
+    .modal-conteudo {
+        padding: 1.2rem;
+    }
+
+    .modal-conteudo h3 {
+        font-size: 1.3rem;
+    }
 }
