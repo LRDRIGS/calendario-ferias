@@ -1,0 +1,210 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #F3E8FF; /* Lavanda suave e clean */
+    color: #4C1D95;
+}
+
+/* 1. Cabeçalho Superior */
+header {
+    background-color: #5B21B6; /* Roxo Real Rapunzel */
+    text-align: center;
+    padding: 2.2rem 1rem;
+    box-shadow: 0 4px 15px rgba(91, 33, 182, 0.2);
+}
+
+header h1 {
+    color: #F59E0B; /* Dourado das Lanternas */
+    font-size: 3.2rem;
+    letter-spacing: 2px;
+    margin-bottom: 0.3rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+header p {
+    color: #F3E8FF;
+    font-size: 1.3rem;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+/* 2. Área Principal & Card do Calendário */
+.container {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.calendario-section {
+    background: #FFFFFF; /* Fundo limpo e leve */
+    border: 2px solid #E9D5FF;
+    padding: 1.8rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(91, 33, 182, 0.08);
+}
+
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    color: #5B21B6;
+    font-size: 1.15rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 2px solid #F3E8FF;
+}
+
+.grid-calendario {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.6rem;
+}
+
+/* 3. Quadrados dos Dias */
+.dia-card {
+    background-color: #FAF5FF;
+    border: 1px solid #E9D5FF;
+    border-radius: 10px;
+    min-height: 95px;
+    padding: 0.6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.dia-card:hover {
+    transform: translateY(-3px);
+    background-color: #FFFFFF;
+    border-color: #F59E0B; /* Toque dourado ao passar o mouse */
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.2);
+}
+
+.dia-numero {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #5B21B6;
+}
+
+.dia-preview {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #7C3AED; /* Roxo para as anotações */
+    white-space: pre-wrap;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    margin-top: 0.4rem;
+    line-height: 1.2;
+}
+
+.dia-card.com-anotacao {
+    background-color: #FFFFFF;
+    border-left: 5px solid #F59E0B; /* Destaque dourado na lateral */
+}
+
+/* 4. Janela Modal de Edição (Pop-up) */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(76, 29, 149, 0.4); /* Cortinado roxo suave transparente */
+    backdrop-filter: blur(4px); /* Efeito desfocado elegante */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal.hidden {
+    display: none !important;
+}
+
+.modal-conteudo {
+    background: #FFFFFF;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid #E9D5FF;
+}
+
+.modal-conteudo h3 {
+    margin-bottom: 1.2rem;
+    color: #5B21B6;
+    font-size: 1.7rem;
+    border-bottom: 2px solid #F3E8FF;
+    padding-bottom: 0.5rem;
+}
+
+.modal-conteudo textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #E9D5FF;
+    border-radius: 10px;
+    font-size: 1rem;
+    color: #4C1D95;
+    background-color: #FAF5FF;
+    resize: none;
+    margin-bottom: 1.2rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.modal-conteudo textarea:focus {
+    border-color: #F59E0B;
+    background-color: #FFFFFF;
+}
+
+.modal-conteudo textarea::placeholder {
+    color: #A78BFA;
+}
+
+.modal-acoes {
+    display: flex;
+    gap: 0.8rem;
+}
+
+.btn-salvar {
+    background-color: #F59E0B; /* Botão dourado */
+    color: #FFFFFF;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    flex: 1;
+    transition: background-color 0.2s;
+}
+
+.btn-salvar:hover {
+    background-color: #D97706;
+}
+
+.btn-fechar {
+    background-color: #6B7280;
+    color: #FFFFFF;
+    border: none;
+    padding: 0.8rem 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.btn-fechar:hover {
+    background-color: #4B5563;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novembro 2026 - Férias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Novembro 2026</h1>
+        <p>Férias - Planejando memórias</p>
+    </header>
+
+    <main class="container">
+        <section class="calendario-section">
+            <div class="dias-semana">
+                <div>Dom</div><div>Seg</div><div>Ter</div><div>Qua</div><div>Qui</div><div>Sex</div><div>Sáb</div>
+            </div>
+            <div id="grid-calendario" class="grid-calendario"></div>
+        </section>
+    </main>
+
+    <div id="modal-dia" class="modal hidden">
+        <div class="modal-conteudo">
+            <h3 id="modal-titulo">Dia X de Novembro</h3>
+            <textarea id="modal-texto" rows="5" placeholder="O que você planejou ou fez neste dia?"></textarea>
+            <div class="modal-acoes">
+                <button id="btn-salvar-dia" class="btn-salvar">Salvar Anotação</button>
+                <button id="btn-fechar-modal" class="btn-fechar">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
